@@ -8,11 +8,16 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('skydivesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('skydivesCtrl', ['$scope', 'SkydiveService',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, SkydiveService) {
 
+    $scope.skydives = [];
+    
+    SkydiveService.getSkydives().then(function(res) {
+        $scope.skydives = res;     
+    });
 
 }])
    
@@ -71,4 +76,7 @@ function ($scope, $stateParams) {
 
 
 }])
- 
+
+
+
+
