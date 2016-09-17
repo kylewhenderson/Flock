@@ -1,11 +1,10 @@
 <ion-view title="Skydives" id="page2">
     <ion-content padding="true" class="has-header">
         <ion-list>
-            <ion-item ng-repeat="skydive in skydives" ui-sref="skydiveTitle({id:skydive.id})" class="item-icon-right">                 
-                <h2>{{skydive.acf.jump_type}} #{{skydive.acf.jump_number}}</h2>
-                <p>{{skydive.acf.jump_date | date:'medium'}}</p>
-                
-                <i class="icon ion-ios-videocam icon-accessory"></i>
+            <ion-item class="item-icon-left item-icon-right" ng-repeat="skydive in skydives" ui-sref="skydiveTitle({id:skydive.id})">{{skydive.title}}
+                <i class="icon ion-ionic"></i><!--{{skydive.acf.jump_type}}--> #{{skydive.acf.jump_number}}
+                <span class="item-note">{{skydive.acf.jump_date | date:'MMM dd, yyyy'}}</span>
+                <i class="icon ion-ios-arrow-right icon-accessory"></i>
             </ion-item>
         </ion-list>
     </ion-content>

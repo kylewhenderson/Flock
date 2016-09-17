@@ -24,7 +24,13 @@ angular.module('app.services', [])
         },
         getSkydive:function(id) {
             var deferred = $q.defer();
-            
+      
+            /*
+            $http.get("http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10").then(function(res) {
+                //console.dir(res.data.results);
+                deferred.resolve(res.data);
+            });
+            */
             //temp
             var skydive = {
                 id:id,
@@ -33,10 +39,7 @@ angular.module('app.services', [])
             };
 
             deferred.resolve(skydive);
-            return deferred.promise;
-            
-            
-            
+            return deferred.promise;      
         }   
     };
 
