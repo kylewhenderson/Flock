@@ -1,0 +1,7 @@
+.form-no-borders .item {
+    border:none;
+}
+
+.form-no-borders .item input {
+ text-align:right;   
+}
