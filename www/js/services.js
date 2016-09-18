@@ -37,12 +37,12 @@ angular.module('app.services', [])
                     jump_aircraft:res.data.acf.jump_aircraft.post_title,
                     jump_type:res.data.acf.jump_type,
                     jump_altitude:res.data.acf.jump_altitude,
-                    jump_gear_mode:res.data.acf.jump_gear_mode,
+                    jump_gear_mode:res.data.acf.jump_gear_mode.label,
                     jump_rig:res.data.acf.jump_rig,
-                    jump_container:res.data.acf.jump_container,
-                    jump_main:res.data.acf.jump_main,
-                    jump_reserve:res.data.acf.jump_reserve,
-                    jump_cut_away:res.data.acf.jump_cut_away,
+                    jump_container:res.data.acf.jump_container.label,
+                    jump_main:res.data.acf.jump_main.label,
+                    jump_reserve:res.data.acf.jump_reserve.label,
+                    jump_cut_away:res.data.acf.jump_cut_away.label,
                     // videos probably need to have their own service passing the skydive id
                 };
                 deferred.resolve(skydive);
