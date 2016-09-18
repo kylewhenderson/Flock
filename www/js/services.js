@@ -10,13 +10,13 @@ angular.module('app.services', [])
 }])
 
 .service('SkydiveService', ['$http','$q',function($http,$q){
-
+    
     return {
         getSkydives:function() {
             var deferred = $q.defer();
             var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10";
             $http({ cache: false, url: url, method: 'GET'}).then(function(res) {
-                console.dir(res.data);
+                console.dir(res);
                 deferred.resolve(res.data);
             });
             

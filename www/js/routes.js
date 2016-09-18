@@ -7,7 +7,7 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
+  
   .state('menu.flockDashboard', {
     url: '/dashboard',
     views: {
@@ -17,9 +17,8 @@ angular.module('app.routes', [])
       }
     }
   })
-
+  
   .state('menu.skydives', {
-    cache: false, // not sure if this is needed
     url: '/skydives',
     views: {
       'side-menu21': {
