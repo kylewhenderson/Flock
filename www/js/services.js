@@ -14,7 +14,8 @@ angular.module('app.services', [])
     return {
         getSkydives:function() {
             var deferred = $q.defer();
-            $http.get("http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10").then(function(res) {
+            var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10";
+            $http({ cache: false, url: url, method: 'GET'}).then(function(res) {
                 console.dir(res.data);
                 deferred.resolve(res.data);
             });
