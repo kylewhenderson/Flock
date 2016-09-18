@@ -87,7 +87,7 @@ angular.module('app.routes', [])
       }
     }
   })
-
+  
   .state('login2', {
     url: '/page8',
     templateUrl: 'templates/login2.html',

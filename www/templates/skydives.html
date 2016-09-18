@@ -1,8 +1,8 @@
-<ion-view title="Skydives" id="page2" cache-view=false>
+<ion-view title="Skydives" cache-view="false" id="page2">
     <ion-content padding="true" class="has-header">
         <ion-list>
             <ion-item class="item-icon-left item-icon-right" ng-repeat="skydive in skydives" ui-sref="skydiveTitle({id:skydive.id})">       {{skydive.title}}
-                <i class="icon ion-ionic"></i><!--{{skydive.acf.jump_type}}--> #{{skydive.acf.jump_number}}
+                <i class="icon ion-ionic"></i>{{skydive.acf.jump_type}} #{{skydive.acf.jump_number}}
                 <span class="item-note">{{skydive.acf.jump_date | date:'MMM dd, yyyy'}}</span>
                 <i class="icon ion-ios-arrow-right icon-accessory"></i>
             </ion-item>
