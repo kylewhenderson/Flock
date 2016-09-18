@@ -10,7 +10,7 @@ angular.module('app.routes', [])
     
   
 
-      .state('menu.flockDashboard', {
+  .state('menu.flockDashboard', {
     url: '/dashboard',
     views: {
       'side-menu21': {
@@ -29,7 +29,13 @@ angular.module('app.routes', [])
       }
     }
   })
-
+  
+  .state('skydiveTitle', {
+      url: '/skydive/:id',
+      templateUrl: 'templates/skydive.html',
+      controller: 'skydiveTitleCtrl'
+    })
+  
   .state('menu.addASkydive', {
     url: '/add-skydive',
     views: {
@@ -72,12 +78,12 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.viewSkydive', {
+  .state('menu.skydive', {
     url: '/skydive',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/viewSkydive.html',
-        controller: 'viewSkydiveCtrl'
+        templateUrl: 'templates/skydive.html',
+        controller: 'skydiveCtrl'
       }
     }
   })
