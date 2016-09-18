@@ -14,8 +14,8 @@ angular.module('app.services', [])
     return {
         getSkydives:function() {
             var deferred = $q.defer();
-
-            $http.get("http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10").then(function(res) {
+            // Math.random() used to disable cache until we find the right way to handle it.
+            $http.get("http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10&rand="+Math.random()).then(function(res) {
                 //console.dir(res.data.results);
                 deferred.resolve(res.data);
             });
