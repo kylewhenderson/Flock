@@ -9,7 +9,7 @@ angular.module('app.services', [])
 
 }])
 
-.factory('SkydiveService', ['$http','$q',function($http,$q){
+.service('SkydiveService', ['$http','$q',function($http,$q){
     return {
         getSkydives:function() {
         
