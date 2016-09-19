@@ -11,7 +11,7 @@ angular.module('app.services', [])
 
 
 
-.service('SkydiveService', function($http) {
+.service('SkydiveService', ['$http',function($http){
 
   return {
     getSkydives:function() {
@@ -26,4 +26,4 @@ angular.module('app.services', [])
         return $http({ cache: false, url: url, method: 'GET'});
     }
   };
-});
+}]);
