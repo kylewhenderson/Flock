@@ -24,13 +24,16 @@ function ($scope, $stateParams, SkydiveService) {
 }])
 */
 
-.controller('skydivesCtrl', function($scope, SkydiveService) {
-  SkydiveService.getSkydives().then(function(payload) {
-     $scope.skydives = payload.data;
-      console.log(payload);
+.controller('skydivesCtrl', ['$scope', '$stateParams', 'SkydiveService',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, SkydiveService) {
+    SkydiveService.getSkydives().then(function(payload) {
+    $scope.skydives = payload.data;
+    console.log(payload);
   });
-
-})
+     
+}])
 
 .controller('addASkydiveCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -72,10 +75,10 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('skydiveCtrl', ['$scope', 'SkydiveService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('skydiveCtrl', ['$scope', '$stateParams', 'SkydiveService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, SkydiveService) {
+function ($scope, $stateParams, SkydiveService) {
 
     $scope.skydive = [];
     
