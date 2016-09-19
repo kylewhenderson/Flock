@@ -4,7 +4,10 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+    $scope.skydives = [];
+    SkydiveService.getRecentSkydives().then(function(res) {
+        $scope.skydives = res;
+    });
 
 }])
    
@@ -12,7 +15,6 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, SkydiveService) {
-    
         $scope.skydives = [];
         SkydiveService.getSkydives().then(function(res) {
         $scope.skydives = res;

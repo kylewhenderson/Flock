@@ -23,6 +23,16 @@ angular.module('app.services', [])
             
             return deferred.promise;
         },
+        getRecentSkydives:function() {
+            var deferred = $q.defer();
+            var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=5";
+            $http({ cache: false, url: url, method: 'GET'}).then(function(res) {
+                console.dir(res);
+                deferred.resolve(res.data);
+            });
+            
+            return deferred.promise;
+        },
         getSkydive:function(id) {
             var deferred = $q.defer();
       
