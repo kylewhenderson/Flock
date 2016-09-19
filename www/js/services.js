@@ -9,6 +9,21 @@ angular.module('app.services', [])
 
 }])
 
+
+
+.factory('SkydiveService', function($http) {
+
+  return {
+    getSkydives:function() {
+        // Return promise (async callback)
+        var rand = Math.floor(Math.random()*100); // probably not the right way to do this, but can't figure out another method.
+        var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10&rand=" + rand;
+        return $http({ cache: false, url: url, method: 'GET'});
+    }
+  };
+});
+
+/*
 .service('SkydiveService', ['$http','$q',function($http,$q){
     return {
         getSkydives:function() {
@@ -20,14 +35,12 @@ angular.module('app.services', [])
                 //console.dir(res);
                 deferred.resolve(res.data);
             });
-            
             return deferred.promise;
         },
         getRecentSkydives:function() {
             var deferred = $q.defer();
             var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=5";
             $http({ cache: false, url: url, method: 'GET'}).then(function(res) {
-                console.dir(res);
                 deferred.resolve(res.data);
             });
             
@@ -62,3 +75,4 @@ angular.module('app.services', [])
     };
 
 }]);
+*/
