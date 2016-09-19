@@ -70,7 +70,7 @@ angular.module('app.services', [])
     getSkydives:function() {
         // Return promise (async callback)
         var rand = Math.floor(Math.random()*100); // probably not the right way to do this, but can't figure out another method.
-        var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10&rand=" + rand;
+        var url = "http://logbook.jellyflea.net/wp-json/wp/v2/skydive?author=1&filter[posts_per_page]=10";
         return $http({ cache: false, url: url, method: 'GET'});
     },
       
