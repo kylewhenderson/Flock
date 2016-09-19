@@ -9,6 +9,7 @@ angular.module('app.services', [])
 
 }])
 
+/*
 .service('SkydiveService', ['$http','$q',function($http,$q){
     return {
         getSkydives:function() {
@@ -60,8 +61,8 @@ angular.module('app.services', [])
     };
 
 }]);
+*/
 
-/*
 
 .service('SkydiveService', ['$http',function($http){
 
@@ -79,4 +80,3 @@ angular.module('app.services', [])
     }
   };
 }]);
-*/
