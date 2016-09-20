@@ -11,28 +11,32 @@ function ($scope, $stateParams) {
 
 }])
    
-/*
 .controller('skydivesCtrl', ['$scope', '$stateParams', 'SkydiveService',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, SkydiveService) {
-        $scope.skydives = [];
-        SkydiveService.getSkydives().then(function(res) {
-        $scope.skydives = res;
-    });
-     
-}])
-*/
 
-.controller('skydivesCtrl', ['$scope', '$stateParams', 'SkydiveService',   // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, SkydiveService) {
     SkydiveService.getSkydives().then(function(payload) {
     $scope.skydives = payload.data;
-    console.log(payload);
+    //console.log(payload);
   });
      
+}])
+
+.controller('skydiveCtrl', ['$scope', '$stateParams', 'SkydiveService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, SkydiveService) {
+    $scope.skydive = {};
+    
+    SkydiveService.getSkydive($stateParams.id).then(function(res) {
+    $scope.skydive = res.data;  
+    });
+    
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+      viewData.enableBack = true;
+    }); 
+
 }])
 
 .controller('addASkydiveCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -72,33 +76,6 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
-
-}])
-   
-.controller('skydiveCtrl', ['$scope', '$stateParams', 'SkydiveService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, SkydiveService) {
-
-    $scope.skydive = [];
-    
-    SkydiveService.getSkydive($stateParams.id).then(function(res) {
-        $scope.skydive = res;  
-    });
-    
-}])
-
-   
-.controller('skydiveTitleCtrl', ['$scope', '$stateParams', 'SkydiveService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, SkydiveService) {
-
-    $scope.skydive = {};
-    
-    SkydiveService.getSkydive($stateParams.id).then(function(res) {
-        $scope.skydive = res;  
-    });
 
 }])
     

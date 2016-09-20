@@ -28,10 +28,21 @@ angular.module('app.routes', [])
     }
   })
   
-  .state('skydiveTitle', {
+  .state('menu.skydive', {
+    url: '/skydive/:id',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/skydive.html',
+        controller: 'skydiveCtrl',
+        controllerAs: 'getSkydive'
+      }
+    }
+  })
+  
+  .state('skydive', {
       url: '/skydive/:id',
       templateUrl: 'templates/skydive.html',
-      controller: 'skydiveTitleCtrl'
+      controller: 'skydiveCtrl'
     })
   
   .state('menu.addASkydive', {
@@ -75,17 +86,7 @@ angular.module('app.routes', [])
       }
     }
   })
-
-  .state('menu.skydive', {
-    url: '/skydive',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/skydive.html',
-        controller: 'skydiveCtrl'
-      }
-    }
-  })
-  
+    
   .state('login2', {
     url: '/page8',
     templateUrl: 'templates/login2.html',

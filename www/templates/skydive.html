@@ -1,9 +1,9 @@
 <ion-view title="View Skydive">
     
-    <ion-nav-title>{{skydive.title}}</ion-nav-title>
+    <ion-nav-title>Skydive #{{skydive.acf.jump_number}}</ion-nav-title>
         
         <ion-content padding="true" class="has-header">
-  
+        <ion-spinner ng-show="!skydive" icon="spiral"></ion-spinner>
         <div>
             <style>
                 td {
@@ -16,73 +16,73 @@
                         <td>
                             <strong>Jump #</strong>
                         </td>
-                        <td>{{skydive.data.jump_number}}</td>
+                        <td>{{skydive.acf.jump_number}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Date</strong>
                         </td>
-                        <td>{{skydive.jump_date  | date:'MMM dd, yyyy'}}</td>
+                        <td>{{skydive.acf.jump_date  | date:'MMM dd, yyyy'}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Location</strong>
                         </td>
-                        <td>{{skydive.jump_location}}</td>
+                        <td>{{skydive.acf.jump_location.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Aircraft</strong>
                         </td>
-                        <td>{{skydive.jump_aircraft}}</td>
+                        <td>{{skydive.acf.jump_aircraft.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Type</strong>
                         </td>
-                        <td>{{skydive.jump_type}}</td>
+                        <td>{{skydive.acf.jump_type}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Altitude</strong>
                         </td>
-                        <td>{{skydive.jump_altitude}}</td>
+                        <td>{{skydive.acf.jump_altitude}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Gear Mode</strong>
                         </td>
-                        <td>{{skydive.jump_gear_mode}}</td>
+                        <td>{{skydive.acf.jump_gear_mode}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Rig</strong>
                         </td>
-                        <td>{{skydive.jump_rig}}</td>
+                        <td>{{skydive.acf.jump_rig.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Container</strong>
                         </td>
-                        <td>{{skydive.jump_container}}</td>
+                        <td>{{skydive.acf.jump_container.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Main</strong>
                         </td>
-                        <td>{{skydive.jump_main}}</td>
+                        <td>{{skydive.acf.jump_main.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Reserve</strong>
                         </td>
-                        <td>{{skydive.jump_reserve}}</td>
+                        <td>{{skydive.acf.jump_reserve.post_title}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Cutaway</strong>
                         </td>
-                        <td>{{skydive.jump_cut_away}}</td>
+                        <td>{{skydive.acf.jump_cut_away}}</td>
                     </tr>
                 </tbody>
             </table>
