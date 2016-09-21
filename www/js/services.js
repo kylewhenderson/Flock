@@ -8,6 +8,56 @@ angular.module('app.services', [])
 
 }])
 
+
+.service('LoginService', function($q, $http) {
+    return {
+        
+        // need to figure out how to chain this. not sure if they need to be separate services starting in controller, results handled in controller, or what. Try handing results in controller instead.
+        loginUser: function(name, pw) {
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+ 
+            var generate_auth_cookie_url = 'http://logbook.jellyflea.net/api/user/generate_auth_cookie/?username=' + name + '&password=' + pw + '&insecure=cool';
+            
+            return $http.get(generate_auth_cookie_url).then(function(res) {  
+                var auth_cookie_status = res.data.status;
+                var auth_cookie = res.data.cookie;
+                //alert(JSON.stringify(res, null, 4));
+                
+                var validate_auth_cookie_url = 'http://logbook.jellyflea.net/api/user/validate_auth_cookie/?cookie=' + auth_cookie + '&insecure=cool';
+                return $http.get(validate_auth_cookie_url).then(function(res2) {  
+                 validate_auth_cookie = res2.data.valid;
+                    //alert(validate_auth_cookie);
+                });
+            
+            });
+                    
+                    
+            if (validate_auth_cookie == true) {
+                    //alert('okay');
+                    deferred.resolve('Welcome ' + name + '!');
+                } 
+                else {
+                    deferred.reject('Wrong credentials.');
+                }
+                
+                promise.success = function(fn) {
+                        promise.then(fn);
+                        return promise;
+                    }
+                    promise.error = function(fn) {
+                        promise.then(null, fn);
+                        return promise;
+                    }
+                    return promise;
+    
+
+            
+            
+        }
+    }
+})
+
 .service('SkydiveService', ['$http',function($http){
   return {
 

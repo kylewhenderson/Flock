@@ -8,12 +8,12 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
   
-  .state('menu.flockDashboard', {
+  .state('menu.dashboard', {
     url: '/dashboard',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/flockDashboard.html',
-        controller: 'flockDashboardCtrl'
+        templateUrl: 'templates/dashboard.html',
+        controller: 'dashboardCtrl'
       }
     }
   })
@@ -86,13 +86,7 @@ angular.module('app.routes', [])
       }
     }
   })
-    
-  .state('login2', {
-    url: '/page8',
-    templateUrl: 'templates/login2.html',
-    controller: 'login2Ctrl'
-  })
-
+  
 $urlRouterProvider.otherwise('/side-menu/dashboard')
 
   
