@@ -1,32 +1,46 @@
 <ion-view title="Flock - Dashboard" id="page1">
     <ion-content padding="true" class="has-header">
-        <h3 id="flockDashboard-heading1" style="color:#000000;font-weight:300;">Overview</h3>
-        <div class="item item-body" id="flockDashboard-list-item-container2">
-            <div id="flockDashboard-markdown1" style="margin-top:0px;color:#000000;text-align:center;">
+        <h3 id="dashboard-heading1" style="color:#000000;font-weight:300;">Overview</h3>
+        <div class="item item-body" id="dashboard-list-item-container2">
+            <div id="dashboard-markdown1" style="margin-top:0px;color:#000000;text-align:center;">
                 <h1>3201</h1>
 
                 <p>Total Jumps</p>
             </div>
         </div>
-        <a ui-sref="menu.addASkydive" id="flockDashboard-button1" class="button button-positive  button-block icon-left ion-android-add">Add a Skydive</a>
-        <div id="flockDashboard-button-bar1" class="button-bar"></div>
-        <div class="list card" id="flockDashboard-card22"></div>
-        <h3 id="flockDashboard-heading2" style="color:#000000;font-weight:300;">Recent Jumps</h3>
-        <div class="list card" id="flockDashboard-card21">
-            <ion-item class="item-avatar item-icon-right" id="flockDashboard-list-item7" ui-sref="menu.skydive">
+        <a ui-sref="menu.addASkydive" id="dashboard-button1" class="button button-positive  button-block icon-left ion-android-add">Add a Skydive</a>
+        <div id="dashboard-button-bar1" class="button-bar"></div>
+        <div class="list card" id="dashboard-card22"></div>
+        <h3 id="dashboard-heading2" style="color:#000000;font-weight:300;">Recent Jumps</h3>
+        
+        <!--
+        <div class="list card" id="dashboard-card21">
+            <ion-item class="item-avatar item-icon-right" id="dashboard-list-item7" ui-sref="menu.skydive">
                 <h2>Freefly</h2>
                 <p>June 20th 2016</p>
                 <i class="icon ion-android-camera"></i>
             </ion-item>
-            <ion-item class="item-avatar item-icon-right" id="flockDashboard-list-item9" ui-sref="menu.skydive">
+            <ion-item class="item-avatar item-icon-right" id="dashboard-list-item9" ui-sref="menu.skydive">
                 <h2>Angle</h2>
                 <p>June 20th 2016</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-            <ion-item class="item-avatar" id="flockDashboard-list-item12" ui-sref="menu.skydive">
+            <ion-item class="item-avatar" id="dashboard-list-item12" ui-sref="menu.skydive">
                 <h2>Freefly</h2>
                 <p>June 20th 2016</p>
             </ion-item>
         </div>
+        -->
+      
+            <ion-list>
+                <ion-spinner ng-show="!recentSkydives" icon="spiral"></ion-spinner>
+                <ion-item class="item-icon-left item-icon-right" ng-repeat="skydive in recentSkydives" ui-sref="skydive({id:skydive.id})">       {{skydive.title}}
+                    <i class="icon ion-ionic"></i>{{skydive.acf.jump_type}} #{{skydive.acf.jump_number}}
+                    <span class="item-note">{{skydive.acf.jump_date | date:'MMM dd, yyyy'}}</span>
+                    <i class="icon ion-ios-arrow-right icon-accessory"></i>
+                </ion-item>
+            </ion-list>
+    
+        
     </ion-content>
 </ion-view>
