@@ -90,11 +90,14 @@
             
             
         </div>
+        <!--
         <div style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="skydive-video2">
             <iframe src="https://www.youtube.com/embed/DiS0x17ZC30?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="" width="560" height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
         </div>
+        -->
         
         <h3 id="skydive-heading5" style="color:#000000;">Friends</h3>
+        
         <ion-list id="skydive-list6">
             <ion-item class="item-avatar item-icon-right" id="skydive-list-item22">
                 <img src="img/mY6uYYGlQzq37DSaFEQ4_12717477_10208693129396272_2214802773428564859_n.jpg">
@@ -108,13 +111,17 @@
                 <p>D-12345</p>
             </ion-item>
         </ion-list>
+            
         <h3 id="skydive-heading6" style="color:#000000;">Comments</h3>
-        <ion-list id="skydive-list8">
-            <ion-item class="item-avatar" id="skydive-list-item24">
-                <img src="img/kEAHfNbqT5S45Wza8EvN_14265015_10153758372150896_2673907743244077186_n.jpg">
-                <h2>Frank Pesaza</h2>
-                <p style="white-space:normal;">Awesome jump brotha!!! What a sunset!</p>
+        <ion-list>
+            <ion-spinner ng-show="!comments" icon="spiral"></ion-spinner>
+            <ion-item class="item-avatar" ng-repeat="comment in comments">
+                <img src="{{comment.author_avatar_urls[48]}}">
+                <h2>{{comment.author_name}}</h2>
+                <span class="item-note">{{comment.date | date:'MMM dd, yyyy h:mm a'}}</span>
+                <p style="white-space:normal;">{{comment.content.rendered | htmlToPlaintext}}</p>
             </ion-item>
-        </ion-list>
+        </ion-list>    
+            
     </ion-content>
 </ion-view>
