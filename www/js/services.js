@@ -70,9 +70,9 @@ angular.module('app.services', [])
         return $http({ cache: false, url: url, method: 'GET'});
     }
   };
-}]);
+}])
 
-/*
+
 .service('CommentService', ['$http',function($http){
   return {
 
@@ -86,4 +86,3 @@ angular.module('app.services', [])
     }
   };
 }]);
-*/
