@@ -8,9 +8,6 @@ angular.module('app.services', [])
 
 }])
 
-
-
-
 .service('LoginService', function($q, $http) {
     return {
         loginUser: function(name, pw) {
@@ -48,11 +45,6 @@ angular.module('app.services', [])
         }
     }
 })
-
-
-
-
-
 
 .service('SkydiveService', ['$http',function($http){
   return {
