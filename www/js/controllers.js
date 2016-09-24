@@ -27,6 +27,7 @@ function ($scope, $stateParams, SkydiveService) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, SkydiveService, CommentService) {
     $scope.skydive = {};
+    $scope.comments = {};
     
     SkydiveService.getSkydive($stateParams.id).then(function(res) {
         $scope.skydive = res.data;  
